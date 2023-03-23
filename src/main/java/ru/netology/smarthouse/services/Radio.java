@@ -1,10 +1,15 @@
 package ru.netology.smarthouse.services;
 
 public class Radio {
-    int stationNumber;
+    private int stationNumber;
+    private int volumeLevel;
 
     public int getStationNumber() {
         return stationNumber;
+    }
+
+    public int getVolumeLevel() {
+        return volumeLevel;
     }
 
     public void setStationNumber(int newStationNumber) {
@@ -23,13 +28,6 @@ public class Radio {
 
     public void setToPrevStation() {
         stationNumber = stationNumber == 0 ? 9 : stationNumber - 1;
-    }
-
-
-    int volumeLevel;
-
-    public int getVolumeLevel() {
-        return volumeLevel;
     }
 
     public void setVolumeLevel(int newVolumeLevel) {
