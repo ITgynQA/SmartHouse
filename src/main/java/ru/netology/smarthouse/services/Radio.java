@@ -1,8 +1,22 @@
 package ru.netology.smarthouse.services;
 
 public class Radio {
-    private int stationNumber;
-    private int volumeLevel;
+    private int countStation = 10;
+    private int stationNumber = countStation - 1;
+    private int volumeLevel = 50;
+
+    public Radio(int stationNumber, int volumeLevel) {
+        this.stationNumber = stationNumber;
+        this.volumeLevel = volumeLevel;
+    }
+
+    public Radio(int countStation) {
+        this.countStation = countStation;
+    }
+
+    public Radio() {
+
+    }
 
     public int getStationNumber() {
         return stationNumber;
