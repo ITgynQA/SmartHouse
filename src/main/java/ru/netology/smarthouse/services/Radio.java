@@ -1,21 +1,17 @@
 package ru.netology.smarthouse.services;
 
 public class Radio {
-    private int countStation = 10;
-    private int stationNumber = countStation - 1;
-    private int volumeLevel = 50;
+    private int stationNumber;
+    private int volumeLevel;
 
-    public Radio(int stationNumber, int volumeLevel) {
-        this.stationNumber = stationNumber;
-        this.volumeLevel = volumeLevel;
-    }
+    private int maxStation;
 
     public Radio(int countStation) {
-        this.countStation = countStation;
+        this.maxStation = countStation - 1;
     }
 
     public Radio() {
-
+        this.maxStation = 9;
     }
 
     public int getStationNumber() {
@@ -30,18 +26,10 @@ public class Radio {
         if (newStationNumber < 0) {
             return;
         }
-        if (newStationNumber > 9) {
+        if (newStationNumber > maxStation) {
             return;
         }
-        stationNumber = newStationNumber;
-    }
-
-    public void setToNextStation() {
-        stationNumber = stationNumber == 9 ? 0 : stationNumber + 1;
-    }
-
-    public void setToPrevStation() {
-        stationNumber = stationNumber == 0 ? 9 : stationNumber - 1;
+        this.stationNumber = newStationNumber;
     }
 
     public void setVolumeLevel(int newVolumeLevel) {
@@ -51,7 +39,15 @@ public class Radio {
         if (newVolumeLevel > 100) {
             return;
         }
-        volumeLevel = newVolumeLevel;
+        this.volumeLevel = newVolumeLevel;
+    }
+
+    public void setToNextStation() {
+        stationNumber = stationNumber == maxStation ? 0 : stationNumber + 1;
+    }
+
+    public void setToPrevStation() {
+        stationNumber = stationNumber == 0 ? maxStation : stationNumber - 1;
     }
 
     public void increaseVolume() {
